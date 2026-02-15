@@ -11,15 +11,15 @@ February 2026
 
 ## Features
 
-- 🔒 **Password Protection** - Encrypt pastes with passwords
-- ⏱️ **Auto-Expiration** - Set custom or preset expiry times
-- 👁️ **View Limits** - Control how many times content can be viewed
-- 📁 **File Sharing** - Share files up to 10MB
-- 🔐 **One-Time View** - Self-destructing pastes
-- 👤 **User Accounts** - Track and manage your pastes
-- 🌓 **Dark Mode** - Full theme support
-- 📧 **Email Verification** - Secure account creation
-- 🔑 **Google OAuth** - Quick sign-in with Google
+- **Password Protection** - Encrypt pastes with passwords
+- **Auto-Expiration** - Set custom or preset expiry times
+- **View Limits** - Control how many times content can be viewed
+- **File Sharing** - Share files up to 10MB
+- **One-Time View** - Self-destructing pastes
+- **User Accounts** - Track and manage your pastes
+- **Dark Mode** - Full theme support
+- **Email Verification** - Secure account creation
+- **Google OAuth** - Quick sign-in with Google
 
 ---
 
