@@ -1,0 +1,57 @@
+1. Database Schema & Model Definitions
+
+MongoDB Collections:
+
+Users Collection (users)
+
+{
+  _id: ObjectId,
+  username: String (3-30 chars, unique),
+  email: String (unique, lowercase),
+  password: String (hashed with bcrypt),
+  isVerified: Boolean (default: false),
+  verificationToken: String (nullable),
+  resetPasswordToken: String (nullable),
+  resetPasswordExpires: Date (nullable),
+  googleId: String (nullable, for OAuth),
+  avatar: String (URL, nullable),
+  createdAt: Date (auto),
+  updatedAt: Date (auto)
+}
+
+// Indexes:
+- email: unique
+- username: unique
+- googleId: unique (sparse)
+
+Pastes Collection (pastes)
+
+{
+  _id: ObjectId,
+  pasteId: String (unique, 16-char random ID),
+  userId: ObjectId (ref: 'User', nullable),
+  isAnonymous: Boolean (default: true),
+  type: String (enum: ['text', 'file']),
+  content: String (for text pastes, nullable),
+  fileUrl: String (for file pastes, nullable),
+  fileMeta: {
+    filename: String,
+    filesize: Number (bytes),
+    mimetype: String
+  },
+  expiresAt: Date (nullable, null = never expires),
+  isExpired: Boolean (default: false),
+  passwordHash: String (bcrypt hashed, nullable),
+  oneTimeView: Boolean (default: false),
+  maxViews: Number (nullable),
+  currentViews: Number (default: 0),
+  deleteToken: String (32-char random, for deletion),
+  createdAt: Date (auto),
+  updatedAt: Date (auto)
+}
+
+// Indexes:
+- pasteId: unique
+- userId: indexed
+- expiresAt: indexed (for cleanup job)
+- deleteToken: unique
